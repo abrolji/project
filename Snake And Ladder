@@ -1,0 +1,340 @@
+#include<iostream.h> //for input output stream.
+#include<conio.h>
+#include<stdlib.h>
+#include<iomanip.h>
+void numtable(int a[10][10]); //for number table.
+void jump1(int &);
+void jump2(int &);
+int p1=0,p2=0;
+char PLAYER1[50];
+char PLAYER2[50];
+void main()
+{ clrscr();
+  int count1,count2,A[10][10];
+  for(int i=0;i<10;i++)
+  { for(int j=0;j<10;j++)
+    { if(i==0)
+      { A[i][j]=100-j;
+      }
+      if(i==1)
+      { A[i][j]=81+j;
+      }
+      if(i==2)
+      { A[i][j]=80-j;
+      }
+      if(i==3)
+      { A[i][j]=61+j;
+      }
+      if(i==4)
+      { A[i][j]=60-j;
+      }
+      if(i==5)
+      { A[i][j]=41+j;
+      }
+      if(i==6)
+      { A[i][j]=40-j;
+      }
+      if(i==7)
+      { A[i][j]=21+j;
+      }
+      if(i==8)
+      { A[i][j]=20-j;
+      }
+      if(i==9)
+      { A[i][j]=1+j;
+      }
+    }
+  }
+  cout<<setw(5)<<"\nWELCOME TO SNAKE & LADDER!!!!!\n";
+  cout<<setw(8)<<"\nDesigned and Developed by Mr.Paras Abrol\n";
+  cout<<setw(5)<<"\nIt is an OFFLINE CONSOLE BASED game.\n";
+  cout<<setw(5)<<"TAKE A LADDER TO GLORY OR GET A SNAKE TO MAKE AN CHANCE TO SHINE!!!\n";
+  cout<<"\nBECAUSE FOR EVERY SNAKE THERE IS A LADDER AND FOR EVERY LADDER THERE IS A SNAKE!\n";
+  system("PAUSE");
+  cout<<"\nEnter the name of 1st player:\n";
+  cin.getline(PLAYER1,50);
+  system("PAUSE");
+  cout<<"\nEnter the name of 2nd player:\n";
+  cin.getline(PLAYER2,50);
+  cout<<"\nLets start the game!!!\n";
+  system("PAUSE");
+  clrscr();
+  srand((unsigned)time(0)); //for seeding new numbers every time.
+  while(p1<=100&&p2<=100)
+  {
+    numtable(A);
+    cout<<endl;
+    system("PAUSE");
+    clrscr();
+    cout<<setw(5)<<"\nlocation of p1 is:"<<p1<<"\n"<<setw(5)<<"location of p2 is:"<<p2<<endl;
+    system("PAUSE");
+pass3:
+    cout<<setw(8)<<"p1's turn: "<<endl;
+    system("PAUSE");
+    count1=random(6)+1;
+    cout<<setw(8)<<count1<<endl;
+    if(p1==0)
+    { if(count1<6)
+      {  cout<<"\n\tYou need 6 to start the game||\n";
+	 goto pass1;
+      }
+      else
+      {
+	 p1=1;
+      }
+    }
+    else
+    {
+    p1=p1+count1;
+    jump1(p1);
+    if(count1==6)
+    { cout<<"\n\tyou got one more turn!!\n";
+    goto pass3;
+    }
+    }
+pass1:
+    system("PAUSE");
+    cout<<setw(8)<<"p2's turn: "<<endl;
+    system("PAUSE");
+    count2=random(6)+1;
+    cout<<setw(8)<<count2<<endl;
+    if(p2==0)
+    { if(count2<6)
+      {  cout<<"\n\tYou need 6 to start the game||\n";
+	 goto pass2;
+      }
+      else
+      {
+	 p2=1;
+      }
+    }
+    else
+    {
+    p2=p2+count2;
+    jump2(p2);
+    if(count2==6)
+    { cout<<"\n\tYou got one more turn!!\n";
+    goto pass1;
+    }
+    }
+pass2:
+    system("PAUSE");
+    if(p1==100||p2==100)
+    break;
+    clrscr();
+  }
+  if(p1>99)
+{ clrscr();
+  int p=1,q=1;
+  while(p<20)
+  {
+  cout<<setw(4)<<"-";
+  p++;
+  }
+  cout<<setw(15)<<"\n|\t\t\t\tPlayer 1 "<<PLAYER1<<" wins!!!\t\t\t\t|\n";
+  while(q<20)
+  {
+  cout<<setw(4)<<"-";
+  q++;
+  }
+}
+  else if(p2>99)
+{ clrscr();
+  int p=1,q=1;
+  while(p<20)
+  {
+  cout<<setw(4)<<"-";
+  p++;
+  }
+  cout<<setw(15)<<"\n|\t\t\t\tPlayer 2 "<<PLAYER2<<" wins!!!\t\t\t\t|\n";
+  while(q<20)
+  {
+  cout<<setw(4)<<"-";
+  q++;
+  }
+}
+  getch();
+}
+void jump1(int &p1)
+{     if(p1==5)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 19!!!\n";
+      p1=19;
+    }
+    else if(p1==13)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 58!!!\n";
+      p1=58;
+    }
+    else if(p1==27)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 63!!!\n";
+      p1=63;
+    }
+    else if(p1==44)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 88!!!\n";
+      p1=88;
+    }
+    else if(p1==65)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 84!!!\n";
+      p1=84;
+    }
+    else if(p1==75)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 98!!!\n";
+      p1=98;
+    }
+    if(p1==14)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 3!!!\n";
+      p1=3;
+    }
+    else if(p1==34)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 17!!!\n";
+      p1=17;
+    }
+    else if(p1==57)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 32!!!\n";
+      p1=32;
+    }
+    else if(p1==68)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 23!!!\n";
+      p1=23;
+    }
+    else if(p1==92)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 86!!!\n";
+      p1=86;
+    }
+    else if(p1==99)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 26!!!\n";
+      p1=26;
+    }
+}
+void jump2(int &p2)
+{     if(p2==5)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 19!!!\n";
+      p2=19;
+    }
+    else if(p2==13)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 58!!!\n";
+      p2=58;
+    }
+    else if(p2==27)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 63!!!\n";
+      p2=63;
+    }
+    else if(p2==44)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 88!!!\n";
+      p2=88;
+    }
+    else if(p2==65)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 84!!!\n";
+      p2=84;
+    }
+    else if(p2==75)
+    { cout<<"\n"<<setw(5)<<"you got ladder to 98!!!\n";
+      p2=98;
+    }
+    if(p2==14)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 3!!!\n";
+      p2=3;
+    }
+    else if(p2==34)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 17!!!\n";
+      p2=17;
+    }
+    else if(p2==57)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 32!!!\n";
+      p2=32;
+    }
+    else if(p2==68)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 23!!!\n";
+      p2=23;
+    }
+    else if(p2==92)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 86!!!\n";
+      p2=86;
+    }
+    else if(p2==99)
+    { cout<<"\n"<<setw(5)<<"oops you got snake to 26!!!\n";
+      p2=26;
+    }
+}
+void numtable(int a[10][10])
+{ int b[10][10];
+  for(int p=0;p<33;p++)
+  { if(p==0||p==32)
+    cout<<"|";
+    else
+    cout<<setw(2)<<"-";
+  }
+  for(int i=0;i<10;i++)
+  { cout<<endl;
+    for(int j=0;j<10;j++)
+    { b[i][j]=a[i][j];
+      if(b[i][j]==5)
+      { cout<<setw(6)<<"|L1|";
+      }
+      else if(b[i][j]==13)
+      {
+	cout<<setw(6)<<"|L2|";
+      }
+      else if(b[i][j]==27)
+      {
+	cout<<setw(6)<<"|L3|";
+      }
+      else if(b[i][j]==44)
+      {
+	cout<<setw(6)<<"|L4|";
+      }
+      else if(b[i][j]==65)
+      {
+	cout<<setw(6)<<"|L5|";
+      }
+      else if(b[i][j]==75)
+      {
+	cout<<setw(6)<<"|L6|";
+      }
+      else if(b[i][j]==14)
+      {
+	cout<<setw(6)<<"|S1|";
+      }
+      else if(b[i][j]==34)
+      {
+	cout<<setw(6)<<"|S2|";
+      }
+      else if(b[i][j]==57)
+      {
+	cout<<setw(6)<<"|S3|";
+      }
+      else if(b[i][j]==68)
+      {
+	cout<<setw(6)<<"|S4|";
+      }
+      else if(b[i][j]==92)
+      {
+	cout<<setw(6)<<"|S5|";
+      }
+      else if(b[i][j]==99)
+      {
+	cout<<setw(6)<<"|S6|";
+      }
+      else if(b[i][j]==p1)
+      {
+	cout<<setw(6)<<"|P1|";
+      }
+      else if(b[i][j]==p2)
+      {
+	cout<<setw(6)<<"|P2|";
+      }
+      else
+      { if(b[i][j]==6)
+	cout<<setw(6)<<b[i][j];
+	else
+	cout<<setw(6)<<b[i][j];
+      }
+    }
+  cout<<endl;
+  for(p=0;p<33;p++)
+  { if(p==0||p==32)
+    cout<<"|";
+    else
+    cout<<setw(2)<<"-";
+  }
+  }
+}
